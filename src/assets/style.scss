@@ -1,6 +1,8 @@
-$primary:       #d81800;
+// $primary:       #d81800;
 $success:       #1F874A;
-$error:       #d81800;
+$secondary:    #d81800;
+$danger:       #d81800;
+$light:         #D5D5D5;
 
 @import '@/../node_modules/bootstrap/scss/bootstrap';
 @import '@/../node_modules/bootstrap-vue/src/index.scss';

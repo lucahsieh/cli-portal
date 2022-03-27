@@ -1,6 +1,6 @@
 <template>
   <div class="flex-v-center">
-    <h4 class="">{{ text }}</h4>
+    <h5 class="">{{ text }}</h5>
     <div class="underline"></div>
   </div>
 </template>

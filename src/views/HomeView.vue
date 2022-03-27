@@ -3,7 +3,6 @@
     <!-- <b-form @submit="onSubmit" @reset="onReset" v-if="show"> -->
     <b-form v-if="show">
       <cli-typography text="登入中壽業務員資格測驗報名"></cli-typography>
-
       <div class="input-group">
         <label for="input-1">身分證字號/居留證字號</label>
         <div class="flex-h input-sub-group">
@@ -13,17 +12,21 @@
             type="text"
             placeholder="請輸入身分證字號/居留證字號"
             required
+            var
             class="input"
           ></b-form-input>
           <b-button
             v-if="verifiedPID === 'pending'"
             v-bind:disabled="!form.personalId"
-            v-bind:variant="!form.personalId ? 'secondary' : 'outline-primary'"
+            v-bind:variant="!form.personalId ? 'light' : 'outline-secondary'"
             class="input-check-btn"
             v-on:click="verifiedPID = form.personalId"
             >資格審核</b-button
           >
-          <div class="input-check-result pass" v-if="verifiedPID === 'pass'">
+          <div
+            class="input-check-result pass ml-3"
+            v-if="verifiedPID === 'pass'"
+          >
             <b-icon
               icon="check2"
               variant="success"
@@ -31,7 +34,10 @@
             ></b-icon>
             資格符合
           </div>
-          <div class="input-check-result danger" v-if="verifiedPID === 'error'">
+          <div
+            class="input-check-result danger ml-3"
+            v-if="verifiedPID === 'error'"
+          >
             <b-icon
               icon="x"
               variant="danger"
@@ -60,15 +66,15 @@
             class="input-check-btn"
             v-if="verifiedCNum !== 'sent'"
             v-bind:disabled="!form.cellNum"
-            v-bind:variant="!form.cellNum ? 'secondary' : 'outline-primary'"
+            v-bind:variant="!form.cellNum ? 'light' : 'outline-secondary'"
             v-on:click="handleSendOTP"
             >發送OTP</b-button
           >
           <b-button
-            class="input-check-btn"
+            class="input-check-btn p-0"
             v-if="verifiedCNum === 'sent'"
-            v-bind:disabled="!form.cellNum || timer > 0"
-            v-bind:variant="handleReSendOTP"
+            v-bind:disabled="timer > 0"
+            v-bind:variant="timer <= 0 ? 'outline-secondary' : 'light'"
             v-on:click="verifiedCNum = 'sent'"
             >重新發送OTP</b-button
           >
@@ -76,7 +82,6 @@
         <small v-if="verifiedCNum === 'sent'" class="danger mt-1">{{
           "00:" + timer
         }}</small>
-        {{ verifiedCNum }}
       </div>
 
       <div class="input-group">
@@ -93,7 +98,7 @@
         </div>
       </div>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="secondary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </div>
@@ -115,14 +120,14 @@ export default {
       // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
       show: true,
       verifiedPID: "pending", //pending,error,pass
-      verifiedCNum: "pending", // pending,sent
-      timer: 20,
+      verifiedCNum: "sent", // pending,sent
+      timer: 0,
     };
   },
   methods: {
     handleSendOTP: () => {
       console.log("abac");
-      self.timer = 20;
+      self.timer = 0;
       self.verifiedCNum = "sent";
     },
     handleReSendOTP: () => {
@@ -156,6 +161,7 @@ export default {
 }
 .input {
   height: 36px;
+  max-width: 420px;
 }
 .input-check-btn {
   height: 36px;
