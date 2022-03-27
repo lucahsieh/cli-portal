@@ -101,8 +101,8 @@
       </div>
 
       <b-button
-        class="login-btn shadow-sm"
-        v-bind:variant="form.otpCode === 'pass' ? 'outline-secondary' : 'light'"
+        class="login-btn shadow"
+        v-bind:variant="form.otpCode === 'pass' ? 'secondary' : 'light'"
         v-bind:disabled="form.otpCode !== 'pass'"
         >登入</b-button
       >

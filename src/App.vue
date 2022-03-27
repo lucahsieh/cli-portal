@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="header" class="shadow p-3">
+    <div id="header" class="shadow-sm p-3">
       <div class="header-logo-size">
         <b-img src="@/assets/chinalife_logo.png" fluid alt="中國人壽" />
       </div>
