@@ -1,6 +1,5 @@
 <template>
-  <div class="home flex-v-center fixed-full-page">
-    <!-- <b-form @submit="onSubmit" @reset="onReset" v-if="show"> -->
+  <div class="home flex-v-center full-page">
     <b-form v-if="show">
       <cli-typography text="登入中壽業務員資格測驗報名"></cli-typography>
       <div class="input-group">
@@ -93,7 +92,7 @@
             type="text"
             placeholder="請輸入OTP驗證碼"
             required
-            class="input"
+            class="input no-input-check-btn"
           ></b-form-input>
         </div>
         <small v-if="form.otpCode === 'error'" class="danger mt-1"
@@ -187,6 +186,9 @@ export default {
   min-width: 104px;
   margin-left: 16px;
 }
+.no-input-check-btn {
+  margin-right: 120px;
+}
 .input-check-result {
   display: flex;
   align-items: center;
@@ -208,7 +210,6 @@ export default {
 .input-check-result-icon {
   font-size: 1.7rem;
   margin-right: 4px;
-  /* font */
 }
 .login-btn {
   margin-top: 50px;
