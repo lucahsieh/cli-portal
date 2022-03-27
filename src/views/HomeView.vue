@@ -46,7 +46,7 @@
             >資格不符
           </div>
         </div>
-        <small v-if="verifiedOTP" class="danger mt-1"
+        <small v-if="verifiedPID === 'error'" class="danger mt-1"
           >請先完成完成公會考照班，如有問題請洽業務主管，謝謝！</small
         >
       </div>
@@ -114,7 +114,7 @@
 <script>
 import CliTypography from "@/components/CliTypography.vue";
 
-const TIME_LIMIT = 5; //second
+const TIME_LIMIT = 20; //second
 export default {
   name: "HomeView",
   components: { "cli-typography": CliTypography },
