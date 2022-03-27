@@ -46,7 +46,7 @@
             >資格不符
           </div>
         </div>
-        <small v-if="verifiedPID === 'error'" class="danger mt-1"
+        <small v-if="verifiedOTP" class="danger mt-1"
           >請先完成完成公會考照班，如有問題請洽業務主管，謝謝！</small
         >
       </div>
@@ -75,12 +75,12 @@
             v-if="verifiedCNum === 'sent'"
             v-bind:disabled="timer > 0"
             v-bind:variant="timer <= 0 ? 'outline-secondary' : 'light'"
-            v-on:click="verifiedCNum = 'sent'"
+            v-on:click="handleReSendOTP"
             >重新發送OTP</b-button
           >
         </div>
         <small v-if="verifiedCNum === 'sent'" class="danger mt-1">{{
-          "00:" + timer
+          new Date((timer || 0) * 1000).toISOString().substr(14, 5)
         }}</small>
       </div>
 
@@ -89,17 +89,24 @@
         <div class="flex-h input-sub-group">
           <b-form-input
             id="input-2"
-            v-model="form.cellNum"
+            v-model="form.otpCode"
             type="text"
             placeholder="請輸入OTP驗證碼"
             required
             class="input"
           ></b-form-input>
         </div>
+        <small v-if="form.otpCode === 'error'" class="danger mt-1"
+          >驗證碼輸入錯誤</small
+        >
       </div>
 
-      <b-button type="submit" variant="secondary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button
+        class="login-btn shadow-sm"
+        v-bind:variant="form.otpCode === 'pass' ? 'outline-secondary' : 'light'"
+        v-bind:disabled="form.otpCode !== 'pass'"
+        >登入</b-button
+      >
     </b-form>
   </div>
 </template>
@@ -107,6 +114,7 @@
 <script>
 import CliTypography from "@/components/CliTypography.vue";
 
+const TIME_LIMIT = 5; //second
 export default {
   name: "HomeView",
   components: { "cli-typography": CliTypography },
@@ -117,21 +125,31 @@ export default {
         cellNum: "",
         otpCode: null,
       },
-      // foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
       show: true,
       verifiedPID: "pending", //pending,error,pass
-      verifiedCNum: "sent", // pending,sent
+      verifiedCNum: "pending", // pending,sent
       timer: 0,
     };
   },
   methods: {
-    handleSendOTP: () => {
-      console.log("abac");
-      self.timer = 0;
-      self.verifiedCNum = "sent";
+    handleSendOTP: function () {
+      this.timer = TIME_LIMIT;
+      this.verifiedCNum = "sent";
     },
-    handleReSendOTP: () => {
-      this.timer = 20;
+    handleReSendOTP: function () {
+      this.timer = TIME_LIMIT;
+    },
+  },
+  watch: {
+    timer: {
+      handler(value) {
+        if (value > 0) {
+          setTimeout(() => {
+            this.timer--;
+          }, 1000);
+        }
+      },
+      immediate: false,
     },
   },
 };
@@ -191,5 +209,10 @@ export default {
   font-size: 1.7rem;
   margin-right: 4px;
   /* font */
+}
+.login-btn {
+  margin-top: 50px;
+  min-width: 160px;
+  min-height: 46px;
 }
 </style>

@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <div id="header">
+    <div id="header" class="shadow">
       <div><img src="@/assets/chinalife_logo.svg?data" /></div>
       <h6 class="nav-title">業務資格測驗報名</h6>
     </div>
     <b-container class="bv-example-row">
-      <b-row>
-        <!-- <b-col id="header">1 xxx</b-col> -->
-      </b-row>
+      <b-row> </b-row>
       <b-row>
         <b-col>
           <nav>
@@ -36,7 +34,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 16px 36px;
-  box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 25%);
+  // box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 25%);
   z-index: 100;
 }
 #app {
