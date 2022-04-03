@@ -62,7 +62,7 @@ export default {
 <style scoped>
 .progress-container {
   display: flex;
-  width: 100vw;
+  width: 90vw;
   padding: 10px 10px;
   justify-content: center;
   margin-top: 30px;
