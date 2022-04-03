@@ -1,19 +1,234 @@
 <template>
-  <div class="home flex-v-center full-page">
-    <cli-progressbar></cli-progressbar>
+  <div class="root">
+    <cli-progressbar v-bind:currentIndx="0"></cli-progressbar>
+    <cli-typography text="聲明事項" class="mb-4"></cli-typography>
+    <cli-progressbar-mini
+      v-bind:currentIndx="currentPage"
+      v-bind:totalStep="3"
+    ></cli-progressbar-mini>
+    <div class="disclaimer-box">
+      <health-declaration v-if="currentPage === 2"></health-declaration>
+      <div v-if="currentPage !== 2">
+        <h6 class="mb-4">{{ disclaimer[currentPage].title }}</h6>
+        {{ disclaimer[currentPage].content }}
+      </div>
+    </div>
+    <p class="warning" v-if="currentPage === 2">
+      考生聲明<br />
+      上述所填資料皆為正確，本人前來中國人壽參加人身保險業務員各項資格測驗考試，於考試日之14天非屬衛生福利部需「居家隔離」、「居家檢疫」及「居家檢疫及自主健康管理者於就醫採檢尚未接獲檢驗結果之個案」之對象，且如屬「具感染風險民眾追蹤管理機制」中之「自主健康管理者」，亦應於考試前通報中國人壽，倘有隱匿或不時，本人已知悉係考生本人自負相關法律上責任。
+    </p>
+    <b-form-checkbox
+      id="checkbox-1"
+      name="checkbox-1"
+      class="checkbox"
+      button-variant="danger"
+      v-if="currentPage === 0"
+    >
+      本人已閱讀並充分瞭解上述內容，且同意中國人壽得蒐集、處理及利用本人相關之病歷、醫療、健康檢查與犯罪前科等個人資料。
+    </b-form-checkbox>
+    <b-form-checkbox
+      id="checkbox-2"
+      name="checkbox-2"
+      class="checkbox"
+      button-variant="danger"
+      v-if="currentPage === 1"
+    >
+      本人已閱讀並充分瞭解上述內容。</b-form-checkbox
+    >
+
+    <b-button class="continue-btn shadow" v-on:click="currentPage += 1"
+      >繼續</b-button
+    >
+    <p class="error-message">請詳閱聲明事項，下拉捲軸後勾選同意</p>
   </div>
 </template>
 
 <script>
+import CliProgressBarMini from "../components/CliProgressBarMini.vue";
 import CliProgressBar from "../components/CliProgressBar.vue";
+import CliTypography from "../components/CliTypography.vue";
+import HealthDeclaration from "./HealthDeclaration.vue";
 
 export default {
-  name: "HomeView",
-  components: { "cli-progressbar": CliProgressBar },
+  name: "RegistrationView",
+  components: {
+    "cli-typography": CliTypography,
+    "cli-progressbar": CliProgressBar,
+    "cli-progressbar-mini": CliProgressBarMini,
+    "health-declaration": HealthDeclaration,
+  },
   data() {
-    return {};
+    return {
+      currentPage: 0,
+      disclaimer: [
+        {
+          title: "個人資料提供同意書",
+          content: `本同意書說明中國人壽保險股份有限公司（以下簡稱本公司）將如何處理本表單所蒐集到的個人資料。您可以依據個資法要求以書面方式行使查詢或請求閱覽、請求製給複製本、請求補充或更正、請求停止蒐集、處理或利用、請求刪除等權利。當您簽署本同意書時，表示您已閱讀、瞭解並同意接受本同意書之所有內容。
+一、	個人資料之蒐集、目的、期間及使用對象、地區：
+1.	本公司蒐集您的個人資料在中華民國「個人資料保護法」與相關法令之規範下，蒐集、處理及利用您的個人資料。
+2.	請於申請時提供您本人正確、最新及完整的個人資料，若不提供或提供錯誤、不實、過時不完整或具誤導性的資料將可能影響資格測驗報名之權益及服務。
+3.	本公司因執行業務所蒐集您的個人資料包括姓名、身分證字號、出生年月日、電話等，並請您提供身分證正面影本及學歷證明文件以供查核或轉送壽險公會審核，其他詳如申請書。
+4.	個人資料蒐集之目的：本公司為執行業務員資格測驗報名業務所需蒐集您的個人資料。
+5.	個人資料蒐集之使用期間：以人身保險業務員資格測驗考試年度起五年。
+6.	個人資料蒐集之利用方法：電子或其他非電子化之合於法令規定之利用方法。
+7.	個人資料蒐集之利用對象：本公司及本公司應依法提供之外部機構。
+8.	個人資料蒐集之利用地區：上述對象所在之地區。
+二、	同意書之效力
+1.	當您簽署本聲明書時，即表示您已閱讀、瞭解並同意本同意書之所有內容。
+2.	本公司保留隨時依個資法修改本同意書規範之權利。
+3.	您自本同意書取得的任何資訊，除非本同意書條款有明確規定，均不構成任何保證。
+4.	本同意書之解釋、適用與爭議，均應依照中華民國法律予以處理，並以臺灣臺北地方法院為管轄法院。`,
+        },
+        {
+          title: "測驗須知",
+          content: `壹、辦理依據
+依據「保險業務員管理規則」第5 條規定辦理。
+貳、報名
+一、報名資格：
+應成年(成年年齡依民法之規定並以報名日計算)，具有高中(職)以上學校畢業或同等學歷，並具中華民國身分證、臺灣地區居留證、外僑永久居留證或大陸地區配偶領有長期居留證件者。
+
+※所稱「高中(職)以上學校畢業或同等學歷」係指符合下列條件之一者：
+1.教育行政主管機關認可之高中或高職以上學校畢業者。
+2.教育行政主管機關認可之自學進修學力鑑定考試及格，持有高中、高職或專科畢業程度及格證明書者。
+3.教育行政主管機關認可之大學、獨立學院、三年制或二年制專科學校一年級以上肄業或五年制專科學校四年級以上肄業有證明文件者。
+4.教育行政主管機關認可之大學、獨立學院、三年制或二年制專科學校一年級以上或五年制專科學校四年級以上在學學生持有學生證(有蓋註冊章)者。
+5.高等或普通檢定考試及格者。
+※第4 點所稱「在學學生」係指具有學籍並已完成註冊之在學學生。「在學學生」於報名時應提供蓋有註冊章之學生證影本作為學歷證明文件，惟若所持學生證經校方註記免蓋註冊章，則需另提供學校開立之在學證明。
+※持國外、大陸地區或空中大學學歷報名者，其學歷認定標準如下：
+1.持國外高中職以上學歷證件報名者，其學歷審查標準係參照「大學辦理國外學歷採認辦法」相關規定辦理，報名人員之畢業學校應為已列入教育部收編之外國大學參考名冊者，其學歷證明文件並應經我國駐外使領館、代表處、辦事處或其他經外交部授權機構驗證。如屬外文者，應檢附中文譯本並聲明譯本內容與原文相符。(另，如以本國高中職以上學歷證件外文版本報名者，請附中文譯本。)
+2.持大陸地區高中職以上學歷證件報名者，其學歷須事先依「大陸地區學歷採認辦法」規定，獲得教育行政主管機關之認可。
+3.持空中大學在學或肄業證明文件報名者，其學歷審查標準係參照「入學大學同等學力認定標準」及「空中大學設置條例」相關規定，須為空中大學在學全修生或肄業全修生。
+二、報名單位：
+(一)凡各壽險公司之新進業務人員，得經由各該壽險公司向中華民國人壽保險商業同業公會(以下簡稱壽險公會)報名。
+(二)凡保險代理人公司、保險經紀人公司、兼營保險代理人或保險經紀人業務之銀行(以下簡稱銀行)之新進業務人員，得經由各所屬中華民國保險代理人商業同業公會或中華民國保險經紀人商業同業公會（以下簡稱所屬公司之商業同業公會）向壽險公會報名。
+三、報名方式：
+(一)符合報名資格者得經由壽險公司彙整報名資料統一向壽險公會報名，未具有中華民國身分證統一編號者應另檢附身分證明文件經由壽險公司向壽險公會報名參加本測
+(二)保險代理人公司、保險經紀人公司或銀行之新進人員符合報名資格者，得經由其所屬公司之
+商業同業公會彙整報名資料統一向壽險公會報名，參加本測驗。
+(三)凡經報名審查符合資格者，非符本簡章規定之退費標準者不得要求退費或延期測驗。
+四、報名日期及測驗日期：
+(一)壽險公會以每週二為辦理報名基準日，由各報名單位彙整測驗報名人員資料並按統一格式鍵
+置電腦檔電腦連線方式向壽險公會報名。
+(二)壽險公會受理各報名單位之報名日期及辦理測驗日期公布於壽險公會網站「測驗登錄園地」（網址
+：http://www.lia-roc.org.tw)，另各報名單位之報名受理日期請逕洽所屬報名單位查詢。
+五、報名費收費標準及繳交方式：
+請向報名單位指定承辦人員繳交報名費用，經壽險公會報名資格審查後報名單位再依通知於規定
+時間內繳交相關報名費用。
+(一)專業科目（含保險實務及保險法規二單元）為新台幣400 元整。
+(二)共同科目（金融市場常識與職業道德）為新台幣250 元整。
+六、報名審查：
+報名資料經審查有下列情事之一者，視為報名審查不合格，壽險公會得逕予刪除其報名資格，並酌收共同科目報名處理費用每人新台幣100 元，專業科目報名處理費用每人新台幣150 元。
+(一)報名時年齡為未成年者。(成年年齡依民法之規定)
+(二)學歷未達高中(職)以上學校畢業或同等學歷者。
+(三)無持有中華民國國民身分證、台灣地區居留證、外僑永久居留證或大陸配偶領有長期居留證件者。
+(四)重複報名當次測驗者。
+(五)人身保險業務員資格測驗合格者。
+(六)曾辦理人身保險業務員登錄且登錄類別為第2、3、4 類者。
+(註：登錄類別第2 類為代理人及經紀人轉入者；登錄類別第3 類為業務員專門課程或一般課程測驗合格者；登錄類別第4 類為「保險業務員管理規則」發布前已在所屬公司連續服務滿一年，業績優良無不良紀錄者。)
+(七)已報名前次測驗，但於該次測驗成績公布前再報名者。
+(八)以往參加本測驗有違反測驗試場規則，受處分而未屆滿者。
+(九)報名單位檢送之報名資料錯誤、遺漏或不符規定者。
+七、身心障礙人員參加本測驗之處理方式：
+(一)報名
+報名時報名單位應檢附身心障礙手冊或身心障礙證明之影本事先向壽險公會申請，經壽險公會審查通過者，即可參加資格測驗；事後恕不受理辦理相關事宜。
+(二)測驗試場
+由壽險公會於測驗地點另設特殊試場，報名單位應確實通知各該身心障礙人員到指定之特殊試場應試。
+(三)測驗方式
+1.因視覺障礙，致閱讀試題、書寫試卷困難，得視其需要，申請下列項
+(1)報念試題或放大試題：
+a)報念試題(全盲者適用)：由報念人員報念試題，每一試題2 次，測驗時間相同，但如測驗時間終了試題尚未報念完畢，以報念全部試題結束為準。
+b)放大試題：使用放大為A3 紙之試題本。
+得由a)或b)申請一項試題。
+(2)作答方式：
+a)以測驗答案卷塗記作答。
+b)由參加測驗人員自備點字筆以點字紙填答（點字紙由壽險公會提供）。
+c)使用A4 空白答案紙作答。
+得由a)、b)或c)申請一項作答。
+(3)得申請自備放大鏡或口袋型擴視機協助閱讀及作答。(試場無提供電源插座或充電設備，請自行事先充電備用。)
+2.因上肢肢體障礙，致書寫試卷困難，得視其需要，申請使用A4 空白答案紙作答。
+3.前第1.及2.項障礙者，得視其需要，申請延長測驗時間(測驗時間為60 分鐘者延長10 分鐘；測驗時間為80 分鐘者延長20 分鐘)。
+4.因聽覺障礙，得視其需要，由壽險公會於應試試場以大字報書寫方式，表示測驗開始或結束
+鈴聲。
+5.因下肢肢體障礙，致行動不便，得視其需要，申請於原排定試場中安排方便進出之適當座位。
+八、申請退費：
+測驗參加人員若因臨時重大傷病、收到國家徵召令、測驗當日遇3 親等內喪事等因素無法參
+加測驗時，得由參加人員儘速出具相關證明文件（如醫院診斷證明、訃文、點召令、入伍令
+等）交由報名單位統一發函向壽險公會辦理退費重新報名。
+`,
+        },
+      ],
+    };
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.root {
+  padding: 0 16px;
+  height: 90vh;
+  margin-top: 64px;
+  /* top: 64px; */
+  /* position: fixed; */
+  display: flex;
+  /* right: 0; */
+  /* left: 0; */
+  flex-direction: column;
+  /* align-content: center; */
+  /* justify-content: center; */
+  align-items: center;
+}
+h6 {
+  font-size: 14px;
+}
+.disclaimer-box {
+  width: 90vw;
+  height: 70vh;
+  max-width: 730px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  border-radius: 3px;
+  border: 1px solid #ced4da;
+  margin: 20px;
+  white-space: pre-line;
+  text-align: left;
+  padding: 16px;
+  font-size: 14px;
+}
+.warning {
+  color: #d81800;
+  text-align: left;
+  width: 90vw;
+  max-width: 730px;
+  max-height: 300px;
+  margin: 16px 40px;
+  font-size: 14px;
+}
+.checkbox {
+  text-align: left;
+  width: 90vw;
+  /* height: 200px; */
+  max-width: 730px;
+  max-height: 300px;
+  margin: 16px 40px;
+  font-size: 14px;
+}
+.checkbox > input:after {
+  background-color: purple;
+}
+input[type="checkbox"] {
+  /* change "blue" browser chrome to yellow */
+  filter: invert(100%) hue-rotate(18deg) brightness(1.7);
+}
+.continue-btn {
+  margin-top: 19px;
+  min-width: 160px;
+  min-height: 46px;
+}
+.error-message {
+  color: #d81800;
+  margin-top: 30px;
+  font-size: 14px;
+}
+</style>

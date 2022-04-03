@@ -33,7 +33,8 @@ export default {
   align-content: space-between;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
+  background-color: white;
+  z-index: 1000;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -48,7 +49,7 @@ export default {
 }
 
 .full-page {
-  height: 95vh;
+  height: 85vh;
   padding: 0 16px;
 }
 .flex-v-left {
@@ -57,7 +58,11 @@ export default {
   align-items: flex-start;
 }
 .flex-v-center {
+  top: 64px;
+  position: fixed;
   display: flex;
+  right: 0;
+  left: 0;
   flex-direction: column;
   align-content: center;
   justify-content: center;

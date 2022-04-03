@@ -28,7 +28,14 @@
             ></b-icon>
           </div>
 
-          <p class="progress-text">{{ step.label }}</p>
+          <p
+            class="progress-text"
+            v-bind:class="{
+              'text-active': currentIndx === index,
+            }"
+          >
+            {{ step.label }}
+          </p>
         </div>
       </div>
     </div>
@@ -57,11 +64,13 @@ export default {
   display: flex;
   width: 100vw;
   padding: 10px 10px;
+  justify-content: center;
+  margin-top: 30px;
 }
 .progress-item-container {
   position: relative;
   width: 100%;
-  min-width: 80px;
+  max-width: 80px;
 }
 .progress-bar {
   position: relative;
@@ -78,15 +87,23 @@ export default {
 .progress-container .progress-item-container:last-child .progress-bar {
   transform: skewX(0.5);
   right: 50%;
-  /* left: 50%; */
-}
-.progress-container-current {
-  background: linear-gradient(to right, #ff7362 50%, #d2daf3 50%);
 }
 .progress-container-completed {
   background: #ff7362;
 }
-
+.progress-container-current {
+  background: linear-gradient(to right, #ff7362 50%, #d2daf3 50%);
+}
+.progress-container
+  .progress-item-container:first-child
+  .progress-container-current {
+  background: #d2daf3;
+}
+.progress-container
+  .progress-item-container:last-child
+  .progress-container-current {
+  background: #ff7362;
+}
 .progress-item-icon {
   position: relative;
   top: 2.5px;
@@ -125,8 +142,14 @@ export default {
   position: relative;
   top: 5px;
   font-size: 14px;
-  margin: 10px;
-  white-space: pre;
+  margin-top: 32px;
+  white-space: pre-line;
+  transform: translateY(-50%);
+  min-width: 56px;
+  overflow: hidden;
+}
+.text-active {
+  color: #d81800;
 }
 /* font size: 14px */
 </style>

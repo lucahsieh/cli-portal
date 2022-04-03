@@ -1,7 +1,10 @@
 <template>
   <div class="home flex-v-center full-page">
     <b-form v-if="show">
-      <cli-typography text="登入中壽業務員資格測驗報名"></cli-typography>
+      <cli-typography
+        text="登入中壽業務員資格測驗報名"
+        class="mb-5"
+      ></cli-typography>
       <div class="input-group">
         <label for="input-1">身分證字號/居留證字號</label>
         <div class="flex-h input-sub-group">
