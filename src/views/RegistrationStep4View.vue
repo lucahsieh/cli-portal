@@ -167,7 +167,12 @@
               <div class="group mb-2">
                 <div class="list-box payment-alert-list">
                   <p class="red m payment-alert-title">
-                    <b-icon icon="bell" class="mr-2"></b-icon>注意事項
+                    <b-img
+                      src="@/assets/bell_icon.svg"
+                      fluid
+                      alt="bell"
+                      class="bell-icon"
+                    />注意事項
                   </p>
                   <ol>
                     <li>請使用網路銀行或實體ATM將金額轉入以上帳號。</li>
@@ -194,12 +199,14 @@
 <script>
 import CliTypography from "../components/CliTypography.vue";
 import CliProgressBar from "../components/CliProgressBar.vue";
+// import BellIcon from "../assets/bell_icon.svg";
 
 export default {
   name: "RegistrationView",
   components: {
     "cli-typography": CliTypography,
     "cli-progressbar": CliProgressBar,
+    // "bell-svg": BellIcon,
   },
   data() {
     return {
@@ -287,5 +294,10 @@ export default {
   color: #0d6efd;
   font-size: 12.8px;
   margin-top: 4px;
+}
+.bell-icon {
+  height: 16px;
+  width: 16px;
+  margin-right: 4px;
 }
 </style>
