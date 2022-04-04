@@ -114,7 +114,7 @@ export default {
 .check-circle {
   width: 12px;
   height: 12px;
-  top: 3px;
+  top: 2.5px;
   position: relative;
   transform: translate(-50%, -50%);
   color: #ff7362;
@@ -134,6 +134,8 @@ export default {
   box-shadow: 0px 0px 0px 1.5px #ff7362;
 }
 .small-circle-completed {
+  width: 7px;
+  height: 7px;
   background-color: white;
   border: 1.5px solid transparent;
   box-shadow: 0px 0px 0px 0px transparent;

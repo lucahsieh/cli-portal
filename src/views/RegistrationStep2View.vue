@@ -156,7 +156,7 @@ export default {
 
 <style scoped>
 * {
-  font-size: 14px;
+  font-size: 16px;
 }
 .root {
   padding: 0 16px;

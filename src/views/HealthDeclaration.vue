@@ -3,33 +3,38 @@
     <h5 class="mb-4 health-declaration-title">健康聲明書</h5>
     <h6>請確實填寫以下問題</h6>
     <p>1. 最近21天內您是否有出入境史(含隔離檢疫及自主健康管理期間)？*</p>
-    <b-form-checkbox name="checkbox-1" class="checkbox indent"
-      >是，請列出出入境日期：<b-form-input
-        v-model="text"
-        class="input-box"
-        size="sm"
-      ></b-form-input>
-      <span class="ml-2"> 國家：</span
-      ><b-form-input v-model="text" class="input-box" size="sm"></b-form-input>
-    </b-form-checkbox>
+    <div>
+      <b-form-checkbox name="checkbox-1" class="checkbox indent">
+        <span class="minor-fix-shiting">
+          是，請列出出入境日期：<b-form-input
+            v-model="text"
+            class="input-box"
+            size="sm"
+          ></b-form-input>
+          <span class="ml-2"> 國家：</span
+          ><b-form-input
+            v-model="text"
+            class="input-box"
+            size="sm"
+          ></b-form-input>
+        </span>
+      </b-form-checkbox>
+    </div>
     <b-form-checkbox name="checkbox-2" class="checkbox indent"
       >否</b-form-checkbox
     >
     <p>2. 過去14天內是否去過以下地方？*</p>
-    <b-form-checkbox name="checkbox-2a" class="checkbox indent"
-      >外縣市：<b-form-input
-        size="sm"
-        v-model="text"
-        class="input-box"
-        var
-      ></b-form-input>
+    <b-form-checkbox name="checkbox-2a" class="checkbox indent">
+      <span class="minor-fix-shiting">
+        外縣市：<b-form-input size="sm" v-model="text" class="input-box" var>
+        </b-form-input>
+      </span>
     </b-form-checkbox>
-    <b-form-checkbox name="checkbox-2b" class="checkbox indent"
-      >市場/賣場：<b-form-input
-        size="sm"
-        v-model="text"
-        class="input-box"
-      ></b-form-input>
+    <b-form-checkbox name="checkbox-2b" class="checkbox indent">
+      <span class="minor-fix-shiting">
+        市場/賣場：<b-form-input size="sm" v-model="text" class="input-box">
+        </b-form-input>
+      </span>
     </b-form-checkbox>
     <p>
       3.
@@ -124,5 +129,10 @@ export default {
 }
 .inline-block {
   display: inline-block;
+}
+.minor-fix-shiting {
+  margin: 0;
+  position: relative;
+  top: -5px;
 }
 </style>
