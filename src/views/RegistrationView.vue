@@ -17,24 +17,28 @@
       考生聲明<br />
       上述所填資料皆為正確，本人前來中國人壽參加人身保險業務員各項資格測驗考試，於考試日之14天非屬衛生福利部需「居家隔離」、「居家檢疫」及「居家檢疫及自主健康管理者於就醫採檢尚未接獲檢驗結果之個案」之對象，且如屬「具感染風險民眾追蹤管理機制」中之「自主健康管理者」，亦應於考試前通報中國人壽，倘有隱匿或不時，本人已知悉係考生本人自負相關法律上責任。
     </p>
-    <b-form-checkbox
-      id="checkbox-1"
-      name="checkbox-1"
-      class="checkbox"
-      button-variant="danger"
-      v-if="currentPage === 0"
-    >
-      本人已閱讀並充分瞭解上述內容，且同意中國人壽得蒐集、處理及利用本人相關之病歷、醫療、健康檢查與犯罪前科等個人資料。
-    </b-form-checkbox>
-    <b-form-checkbox
-      id="checkbox-2"
-      name="checkbox-2"
-      class="checkbox"
-      button-variant="danger"
-      v-if="currentPage === 1"
-    >
-      本人已閱讀並充分瞭解上述內容。</b-form-checkbox
-    >
+    <div>
+      <b-form-checkbox
+        id="checkbox-1"
+        name="checkbox-1"
+        class="checkbox"
+        button-variant="danger"
+        v-if="currentPage === 0"
+      >
+        本人已閱讀並充分瞭解上述內容，且同意中國人壽得蒐集、處理及利用本人相關之病歷、醫療、健康檢查與犯罪前科等個人資料。
+      </b-form-checkbox>
+    </div>
+    <div>
+      <b-form-checkbox
+        id="checkbox-2"
+        name="checkbox-2"
+        class="checkbox"
+        button-variant="danger"
+        v-if="currentPage === 1"
+      >
+        本人已閱讀並充分瞭解上述內容。</b-form-checkbox
+      >
+    </div>
 
     <b-button class="continue-btn shadow" v-on:click="currentPage += 1"
       >繼續</b-button
@@ -167,17 +171,12 @@ c)使用A4 空白答案紙作答。
 <style scoped>
 .root {
   padding: 0 16px;
-  height: 90vh;
+  /* height: 90vh; */
   margin-top: 64px;
-  /* top: 64px; */
-  /* position: fixed; */
   display: flex;
-  /* right: 0; */
-  /* left: 0; */
   flex-direction: column;
-  /* align-content: center; */
-  /* justify-content: center; */
   align-items: center;
+  padding-bottom: 91px;
 }
 h6 {
   font-size: 16px;
@@ -211,21 +210,13 @@ h6 {
 .checkbox {
   text-align: left;
   width: 90vw;
-  /* height: 200px; */
   max-width: 730px;
-  max-height: 300px;
+  display: block;
   margin: 16px 40px;
   font-size: 14px;
 }
-.checkbox > input:after {
-  background-color: purple;
-}
-input[type="checkbox"] {
-  /* change "blue" browser chrome to yellow */
-  filter: invert(100%) hue-rotate(18deg) brightness(1.7);
-}
 .continue-btn {
-  margin-top: 19px;
+  margin-top: 5px;
   min-width: 160px;
   min-height: 46px;
 }
@@ -233,71 +224,5 @@ input[type="checkbox"] {
   color: #d81800;
   margin-top: 30px;
   font-size: 14px;
-}
-
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1.4em;
-  height: 1.4em;
-  border: 1px solid #aaa;
-  background: #fff;
-  border-radius: 0.2em;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 rgba(203, 34, 237, 0.2);
-  -webkit-transition: all 0.275s;
-  transition: all 0.275s;
-}
-
-/* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: "✕";
-  position: absolute;
-  top: 0.525em;
-  left: 0.18em;
-  font-size: 1.375em;
-  color: #cb22ed;
-  line-height: 0;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-/* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
-  opacity: 0;
-  -webkit-transform: scale(0) rotate(45deg);
-  transform: scale(0) rotate(45deg);
-}
-
-[type="checkbox"]:checked + label:after {
-  opacity: 1;
-  -webkit-transform: scale(1) rotate(0);
-  transform: scale(1) rotate(0);
-}
-
-/* Disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
-  box-shadow: none;
-  border-color: #bbb;
-  background-color: #e9e9e9;
-}
-
-[type="checkbox"]:disabled:checked + label:after {
-  color: #777;
-}
-
-[type="checkbox"]:disabled + label {
-  color: #aaa;
-}
-
-/* Accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1),
-    0 0 0 6px rgba(203, 34, 237, 0.2);
 }
 </style>
