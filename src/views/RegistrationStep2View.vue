@@ -9,7 +9,7 @@
           <div class="group">
             <label>報考測驗日期</label>
             <b-form-input
-              v-model="text"
+              v-model="date"
               placeholder="2022/02/12"
               disabled
             ></b-form-input>
@@ -85,7 +85,8 @@
           <div class="group">
             <label>出生年月日*</label>
             <b-form-input
-              v-model="date"
+              v-model="text"
+              type="date"
               placeholder="1992/10/22"
             ></b-form-input>
           </div>
@@ -167,7 +168,7 @@ export default {
 }
 .group {
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .group small {

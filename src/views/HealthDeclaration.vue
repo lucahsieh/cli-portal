@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h6 class="mb-4">健康聲明書</h6>
+    <h5 class="mb-4 health-declaration-title">健康聲明書</h5>
     <h6>請確實填寫以下問題</h6>
     <p>1. 最近21天內您是否有出入境史(含隔離檢疫及自主健康管理期間)？*</p>
     <b-form-checkbox name="checkbox-1" class="checkbox indent"
@@ -104,6 +104,9 @@ export default {
 <style scoped>
 * {
   font-size: 14px;
+}
+.health-declaration-title {
+  font-size: 16px;
 }
 .content {
   text-align: left;

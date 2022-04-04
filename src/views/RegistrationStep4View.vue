@@ -157,6 +157,7 @@
                   placeholder="0000 1234 2345 3456"
                   disabled
                 ></b-form-input>
+                <b-link href="#foo" class="copy-acct-num">複製帳號</b-link>
               </div>
             </b-col>
           </b-row>
@@ -222,7 +223,7 @@ export default {
 }
 .group {
   text-align: left;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .list-box {
   width: 100%;
@@ -281,5 +282,10 @@ export default {
 .payment-alert-list ol {
   margin-bottom: 0;
   padding: 0px 16px;
+}
+.copy-acct-num {
+  color: #0d6efd;
+  font-size: 12.8px;
+  margin-top: 4px;
 }
 </style>

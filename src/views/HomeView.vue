@@ -96,6 +96,7 @@
             placeholder="請輸入OTP驗證碼"
             required
             class="input no-input-check-btn"
+            variant="secondary"
           ></b-form-input>
         </div>
         <small v-if="form.otpCode === 'error'" class="danger mt-1"
