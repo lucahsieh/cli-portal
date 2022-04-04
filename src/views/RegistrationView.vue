@@ -39,7 +39,9 @@
     <b-button class="continue-btn shadow" v-on:click="currentPage += 1"
       >繼續</b-button
     >
-    <p class="error-message">請詳閱聲明事項，下拉捲軸後勾選同意</p>
+    <p class="error-message" v-if="currentPage < 2">
+      請詳閱聲明事項，下拉捲軸後勾選同意
+    </p>
   </div>
 </template>
 
@@ -195,6 +197,7 @@ h6 {
   text-align: left;
   padding: 16px;
   font-size: 14px;
+  margin-bottom: 0;
 }
 .warning {
   color: #d81800;
@@ -202,7 +205,7 @@ h6 {
   width: 90vw;
   max-width: 730px;
   max-height: 300px;
-  margin: 16px 40px;
+  margin: 8px 40px;
   font-size: 14px;
 }
 .checkbox {

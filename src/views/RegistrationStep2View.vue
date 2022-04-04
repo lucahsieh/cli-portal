@@ -177,6 +177,8 @@ export default {
   width: 160px;
   height: 46px;
   margin: 5px;
+  border-radius: 0.25rem !important;
+  font-size: 16px;
 }
 .btn-group {
   display: flex;
