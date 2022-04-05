@@ -6,17 +6,22 @@
     <div>
       <b-form-checkbox name="checkbox-1" class="checkbox indent">
         <span class="minor-fix-shiting">
-          是，請列出出入境日期：<b-form-input
-            v-model="text"
-            class="input-box"
-            size="sm"
-          ></b-form-input>
-          <span class="ml-2"> 國家：</span
-          ><b-form-input
-            v-model="text"
-            class="input-box"
-            size="sm"
-          ></b-form-input>
+          是，
+          <div class="inline-block">
+            請列出出入境日期：<b-form-input
+              v-model="text"
+              class="input-box"
+              size="sm"
+            ></b-form-input>
+          </div>
+          <div class="inline-block">
+            <span class="ml-2"> 國家：</span
+            ><b-form-input
+              v-model="text"
+              class="input-box"
+              size="sm"
+            ></b-form-input>
+          </div>
         </span>
       </b-form-checkbox>
     </div>
@@ -119,13 +124,17 @@ export default {
 .content p {
   margin: 10px 0px;
 }
+.checkbox {
+  margin: 0px;
+  padding-top: 1.5px;
+}
 .indent {
   margin-left: 16px;
 }
 .input-box {
   display: inline-block;
   max-width: 122px;
-  margin: 3px 0px;
+  margin: 2px 0px;
 }
 .inline-block {
   display: inline-block;
@@ -134,5 +143,8 @@ export default {
   margin: 0;
   position: relative;
   top: -5px;
+}
+.inline-block {
+  display: inline-block;
 }
 </style>

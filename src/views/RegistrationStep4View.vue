@@ -278,7 +278,7 @@ export default {
   width: 100%;
 }
 .max-form-width {
-  max-width: 720px;
+  max-width: 860px;
 }
 .payment-alert-title {
   margin-bottom: 12px;

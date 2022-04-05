@@ -3,115 +3,117 @@
     <cli-progressbar v-bind:currentIndx="1"></cli-progressbar>
     <cli-typography text="報名填寫" class="mb-4"></cli-typography>
 
-    <b-container>
-      <b-row>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>報考測驗日期</label>
-            <b-form-input
-              v-model="date"
-              placeholder="2022/02/12"
-              disabled
-            ></b-form-input>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>測驗考區*</label>
-            <b-form-select :options="placeOptions"></b-form-select>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>申請報名優惠*</label>
-            <b-form-select :options="booleanValue"></b-form-select>
-            <small>※具低收入戶、身心障礙或原住民身份者可申請</small>
-          </div>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>報考科目*</label>
-            <b-form-select :options="subject"></b-form-select>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>報考學歷*</label>
-            <b-form-select :options="degree"></b-form-select>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>應繳報名費</label>
-            <b-form-input
-              v-model="text"
-              placeholder="$650元"
-              disabled
-            ></b-form-input>
-          </div>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>姓名*</label>
-            <b-form-input v-model="text" placeholder="張曉美"></b-form-input>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>身分證/居留證號</label>
-            <b-form-input
-              v-model="text"
-              placeholder="A223456789"
-              disabled
-            ></b-form-input>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>聯絡電話*</label>
-            <b-form-input
-              v-model="text"
-              placeholder="0912345678"
-            ></b-form-input>
-          </div>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>出生年月日*</label>
-            <b-form-input
-              v-model="text"
-              type="date"
-              placeholder="1992/10/22"
-            ></b-form-input>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>E-mail*</label>
-            <b-form-input
-              v-model="email"
-              placeholder="a0923456789@gmail.com"
-            ></b-form-input>
-          </div>
-        </b-col>
-        <b-col cols="12" md="4">
-          <div class="group">
-            <label>開班地區</label>
-            <b-form-input
-              v-model="text"
-              placeholder="北A訓練中心"
-              disabled
-            ></b-form-input>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+    <div class="max-width-860">
+      <b-container>
+        <b-row>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>報考測驗日期</label>
+              <b-form-input
+                v-model="date"
+                placeholder="2022/02/12"
+                disabled
+              ></b-form-input>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>測驗考區*</label>
+              <b-form-select :options="placeOptions"></b-form-select>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>申請報名優惠*</label>
+              <b-form-select :options="booleanValue"></b-form-select>
+              <small>※具低收入戶、身心障礙或原住民身份者可申請</small>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>報考科目*</label>
+              <b-form-select :options="subject"></b-form-select>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>報考學歷*</label>
+              <b-form-select :options="degree"></b-form-select>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>應繳報名費</label>
+              <b-form-input
+                v-model="text"
+                placeholder="$650元"
+                disabled
+              ></b-form-input>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>姓名*</label>
+              <b-form-input v-model="text" placeholder="張曉美"></b-form-input>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>身分證/居留證號</label>
+              <b-form-input
+                v-model="text"
+                placeholder="A223456789"
+                disabled
+              ></b-form-input>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>聯絡電話*</label>
+              <b-form-input
+                v-model="text"
+                placeholder="0912345678"
+              ></b-form-input>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>出生年月日*</label>
+              <b-form-input
+                v-model="text"
+                type="date"
+                placeholder="1992/10/22"
+              ></b-form-input>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>E-mail*</label>
+              <b-form-input
+                v-model="email"
+                placeholder="a0923456789@gmail.com"
+              ></b-form-input>
+            </div>
+          </b-col>
+          <b-col cols="12" md="4">
+            <div class="group">
+              <label>開班地區</label>
+              <b-form-input
+                v-model="text"
+                placeholder="北A訓練中心"
+                disabled
+              ></b-form-input>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
     <div class="btn-group">
       <b-button class="action-btn shadow red" variant="white">
         上一步
@@ -189,5 +191,8 @@ export default {
 }
 .red {
   color: #d81800;
+}
+.max-width-860 {
+  max-width: 860px;
 }
 </style>
