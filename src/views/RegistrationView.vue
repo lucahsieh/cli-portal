@@ -13,10 +13,6 @@
         {{ disclaimer[currentPage].content }}
       </div>
     </div>
-    <p class="warning" v-if="currentPage === 2">
-      考生聲明<br />
-      上述所填資料皆為正確，本人前來中國人壽參加人身保險業務員各項資格測驗考試，於考試日之14天非屬衛生福利部需「居家隔離」、「居家檢疫」及「居家檢疫及自主健康管理者於就醫採檢尚未接獲檢驗結果之個案」之對象，且如屬「具感染風險民眾追蹤管理機制」中之「自主健康管理者」，亦應於考試前通報中國人壽，倘有隱匿或不時，本人已知悉係考生本人自負相關法律上責任。
-    </p>
     <div>
       <b-form-checkbox
         id="checkbox-1"
@@ -170,7 +166,7 @@ c)使用A4 空白答案紙作答。
 
 <style scoped>
 .root {
-  padding: 0 16px;
+  padding: 0 32px;
   /* height: 90vh; */
   margin-top: 64px;
   display: flex;
@@ -182,7 +178,7 @@ h6 {
   font-size: 16px;
 }
 .disclaimer-box {
-  width: 90vw;
+  width: 80vw;
   height: 70vh;
   max-width: 730px;
   min-height: 300px;
@@ -201,7 +197,7 @@ h6 {
 .warning {
   color: #d81800;
   text-align: left;
-  width: 90vw;
+  width: 80vw;
   max-width: 730px;
   max-height: 300px;
   margin: 8px 40px;
@@ -209,7 +205,7 @@ h6 {
 }
 .checkbox {
   text-align: left;
-  width: 90vw;
+  width: 80vw;
   max-width: 730px;
   display: block;
   margin: 16px 40px;

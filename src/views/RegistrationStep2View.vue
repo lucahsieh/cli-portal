@@ -19,13 +19,19 @@
           <b-col cols="12" md="4">
             <div class="group">
               <label>測驗考區*</label>
-              <b-form-select :options="placeOptions"></b-form-select>
+              <b-form-select
+                :options="placeOptions"
+                value="taipei"
+              ></b-form-select>
             </div>
           </b-col>
           <b-col cols="12" md="4">
             <div class="group">
               <label>申請報名優惠*</label>
-              <b-form-select :options="booleanValue"></b-form-select>
+              <b-form-select
+                :options="booleanValue"
+                value="true"
+              ></b-form-select>
               <small>※具低收入戶、身心障礙或原住民身份者可申請</small>
             </div>
           </b-col>
@@ -34,13 +40,17 @@
           <b-col cols="12" md="4">
             <div class="group">
               <label>報考科目*</label>
-              <b-form-select :options="subject"></b-form-select>
+              <b-form-select
+                :options="subject"
+                disabled
+                value="all"
+              ></b-form-select>
             </div>
           </b-col>
           <b-col cols="12" md="4">
             <div class="group">
               <label>報考學歷*</label>
-              <b-form-select :options="degree"></b-form-select>
+              <b-form-select :options="degree" value="college"></b-form-select>
             </div>
           </b-col>
           <b-col cols="12" md="4">
@@ -92,16 +102,17 @@
               ></b-form-input>
             </div>
           </b-col>
-          <b-col cols="12" md="4">
+          <b-col cols="12" md="8">
             <div class="group">
               <label>E-mail*</label>
               <b-form-input
                 v-model="email"
                 placeholder="a0923456789@gmail.com"
               ></b-form-input>
+              <b-form-text id="input-live-help">※可收信為主</b-form-text>
             </div>
           </b-col>
-          <b-col cols="12" md="4">
+          <!-- <b-col cols="12" md="4">
             <div class="group">
               <label>開班地區</label>
               <b-form-input
@@ -110,7 +121,7 @@
                 disabled
               ></b-form-input>
             </div>
-          </b-col>
+          </b-col> -->
         </b-row>
       </b-container>
     </div>
@@ -140,7 +151,7 @@ export default {
         { value: "tainan", text: "台南" },
       ],
       booleanValue: [
-        { value: "true", text: "是" },
+        { value: "true", text: "是(須填申請書及檢附文件)" },
         { value: "false", text: "否" },
       ],
       subject: [

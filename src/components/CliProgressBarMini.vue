@@ -25,7 +25,7 @@ export default {
 }
 .bar {
   width: 20vw;
-  min-width: 98px;
+  min-width: 88px;
   max-width: 198px;
   height: 6px;
   border-radius: 5px;

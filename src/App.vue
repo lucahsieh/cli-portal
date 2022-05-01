@@ -2,7 +2,7 @@
   <div id="app">
     <div id="header" class="shadow-sm p-3">
       <div class="header-logo-size">
-        <b-img src="@/assets/chinalife_logo.png" fluid alt="中國人壽" />
+        <b-img src="@/assets/chinalife_logo_v2.svg" fluid alt="中國人壽" />
       </div>
       <h6 class="nav-title">業務資格測驗報名</h6>
     </div>

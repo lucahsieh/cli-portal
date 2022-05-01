@@ -1,8 +1,9 @@
 <template>
   <div class="root">
     <cli-progressbar v-bind:currentIndx="3"></cli-progressbar>
-    <cli-typography text="資料確認" class="mb-4"></cli-typography>
-
+    <!-- <cli-typography text="資料確認" class="mb-4"></cli-typography> -->
+    <b-img src="@/assets/cloud_check.svg" fluid alt="中國人壽" />
+    <h6 class="mb-4">報名資料已送出</h6>
     <b-container class="max-form-width">
       <b-row>
         <b-col cols="12" md="3">
@@ -53,7 +54,10 @@
         <b-col cols="12" md="3">
           <div class="group">
             <label>申請優惠報名</label>
-            <b-form-input placeholder="是" disabled></b-form-input>
+            <b-form-input
+              placeholder="是(須填申請書及檢附文件)"
+              disabled
+            ></b-form-input>
           </div>
         </b-col>
       </b-row>
@@ -118,7 +122,7 @@
 
     <div class="payment-info-container">
       <p class="payment-notice red" v-if="showPaymentInfo">
-        報名資料已送出，請詳以下繳費資訊
+        報名資料已送出，繳費資訊如下，請儘速於期限前繳交報名費。
       </p>
       <div class="pb-5" v-if="showPaymentInfo">
         <cli-typography text="繳費資訊" class="mb-4"></cli-typography>
@@ -127,7 +131,7 @@
             <b-col cols="12" md="6">
               <div class="group">
                 <label>繳款金額</label>
-                <b-form-input placeholder="$650 元" disabled></b-form-input>
+                <b-form-input placeholder="$550 元" disabled></b-form-input>
               </div>
             </b-col>
 
