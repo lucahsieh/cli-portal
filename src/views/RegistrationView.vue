@@ -35,6 +35,7 @@
         本人已閱讀並充分瞭解上述內容。</b-form-checkbox
       >
     </div>
+    <div class="whitespace-60" v-if="currentPage === 2"></div>
 
     <b-button class="continue-btn shadow" v-on:click="currentPage += 1"
       >繼續</b-button
@@ -220,5 +221,8 @@ h6 {
   color: #d81800;
   margin-top: 30px;
   font-size: 14px;
+}
+.whitespace-60 {
+  height: 60px;
 }
 </style>

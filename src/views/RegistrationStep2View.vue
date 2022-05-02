@@ -58,7 +58,7 @@
               <label>應繳報名費</label>
               <b-form-input
                 v-model="text"
-                placeholder="$650元"
+                placeholder="$550元"
                 disabled
               ></b-form-input>
             </div>

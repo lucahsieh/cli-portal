@@ -192,9 +192,9 @@
           </b-row>
         </b-container>
 
-        <p class="payment-notice red mb-6" v-if="showPaymentInfo">
+        <!-- <p class="payment-notice red mb-6" v-if="showPaymentInfo">
           若尚未繳交報名費請於繳款期限前繳交
-        </p>
+        </p> -->
       </div>
     </div>
   </div>
@@ -282,7 +282,7 @@ export default {
   width: 100%;
 }
 .max-form-width {
-  max-width: 860px;
+  /* max-width: 860px; */
 }
 .payment-alert-title {
   margin-bottom: 12px;
