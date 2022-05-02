@@ -282,7 +282,7 @@ export default {
   width: 100%;
 }
 .max-form-width {
-  /* max-width: 860px; */
+  max-width: 1060px;
 }
 .payment-alert-title {
   margin-bottom: 12px;
